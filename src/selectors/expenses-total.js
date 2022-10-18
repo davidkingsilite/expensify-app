@@ -4,3 +4,4 @@ export default (expenses) => {
             .reduce((sum, value) => sum + value, 0);
 };
 
+ 

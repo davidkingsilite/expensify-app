@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { DateRangePicker } from "react-dates";
+import { DateRangePicker, OutsideClickHandler } from "react-dates";
 import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } from "../actions/filters";
 
 class ExpenseListFilters extends React.Component{
@@ -14,14 +14,14 @@ class ExpenseListFilters extends React.Component{
     onFocusChange = (calendarFocused) => {
         this.setState(() => ({calendarFocused}));
     };
-
+    
     render() {
         return ( 
     <div>
         <input 
         type="text" 
         value={this.props.filters.text} 
-           onChange = {(e) => {
+        onChange = {(e) => {
         this.props.dispatch(setTextFilter(e.target.value));
         }} 
         />
@@ -48,6 +48,7 @@ class ExpenseListFilters extends React.Component{
             numberOfMonths = {1}
             isOutsideRange={()=> false}
         />
+        
     </div>
 );
     }  
